@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Propuesta ABN Digital → UES21</title>
+    
+    <!-- Tailwind via CDN is okay for now, but usually installed via npm for production -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,10 +13,10 @@
           extend: {
             colors: {
               abn: {
-                dark: '#006651', // Secondary: Deep Green
-                primary: '#1E293B', // Slate 800 (Keeping for standard text readability)
-                accent: '#0A9286', // Tertiary: Teal/Aqua
-                light: '#FFFFFF', // Principal: White
+                dark: '#006651',
+                primary: '#1E293B',
+                accent: '#0A9286',
+                light: '#FFFFFF',
               }
             },
             fontFamily: {
@@ -29,18 +31,12 @@
       body { font-family: 'Inter', sans-serif; }
       .scroll-smooth { scroll-behavior: smooth; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
-  }
-}
-</script>
-</head>
+  </head>
   <body class="bg-slate-50 text-slate-800 antialiased scroll-smooth">
     <div id="root"></div>
+
+    <!-- THIS IS THE MOST IMPORTANT LINE: -->
+    <!-- It tells Vite to load your React app -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
