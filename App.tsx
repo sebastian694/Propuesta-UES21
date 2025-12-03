@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Hero } from './components/sections/Hero';
 import { Objective } from './components/sections/Objective';
@@ -6,6 +7,7 @@ import { ContextPains } from './components/sections/ContextPains';
 import { Solution } from './components/sections/Solution';
 import { Scope } from './components/sections/Scope';
 import { Team } from './components/sections/Team';
+import { Roles } from './components/sections/Roles';
 import { Roadmap } from './components/sections/Roadmap';
 import { Commercial } from './components/sections/Commercial';
 import { Comparison } from './components/sections/Comparison';
@@ -107,6 +109,7 @@ const App: React.FC = () => {
         <Solution id="solution" />
         <Scope id="scope" />
         <Team id="team" />
+        <Roles id="roles" />
         <Roadmap id="roadmap" />
         <Commercial id="commercial" />
         <Comparison id="comparison" />
