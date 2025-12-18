@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { SectionProps } from '../../types';
@@ -32,7 +31,7 @@ export const Hero: React.FC<SectionProps> = ({ id }) => {
           </h1>
           
           <p className="text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
-            Una alianza estratégica para gestionar, escalar y transferir conocimiento. Construyamos un sistema de crecimiento eficiente para UES21.
+            Una alianza estratégica diseñada para gestionar, acelerar y transferir conocimiento, asegurando un sistema de crecimiento autónomo para UES21.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

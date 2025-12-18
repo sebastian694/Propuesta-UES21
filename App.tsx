@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Hero } from './components/sections/Hero';
 import { Objective } from './components/sections/Objective';
@@ -9,6 +8,7 @@ import { Scope } from './components/sections/Scope';
 import { Team } from './components/sections/Team';
 import { Roles } from './components/sections/Roles';
 import { Roadmap } from './components/sections/Roadmap';
+import { InHouseTransition } from './components/sections/InHouseTransition';
 import { Commercial } from './components/sections/Commercial';
 import { Comparison } from './components/sections/Comparison';
 import { Menu, X, ArrowUp } from 'lucide-react';
@@ -40,6 +40,7 @@ const App: React.FC = () => {
     { label: 'Solución', id: 'solution' },
     { label: 'Equipo', id: 'team' },
     { label: 'Roadmap', id: 'roadmap' },
+    { label: 'Transición', id: 'transition' },
     { label: 'Propuesta', id: 'commercial' },
   ];
 
@@ -111,6 +112,7 @@ const App: React.FC = () => {
         <Team id="team" />
         <Roles id="roles" />
         <Roadmap id="roadmap" />
+        <InHouseTransition id="transition" />
         <Commercial id="commercial" />
         <Comparison id="comparison" />
       </main>

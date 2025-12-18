@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { User, Users, MessageCircle, ArrowRightLeft, Briefcase, UserCheck, CheckCircle2, ShieldAlert, RotateCw, BarChart3, Database, Fingerprint, ArrowDown, Palette } from 'lucide-react';
+import { User, Users, MessageCircle, ArrowRightLeft, Briefcase, UserCheck, CheckCircle2, RotateCw, BarChart3, Database, ArrowDown, Palette, Zap } from 'lucide-react';
 import { SectionProps } from '../../types';
 
 export const Team: React.FC<SectionProps> = ({ id }) => {
@@ -9,10 +8,10 @@ export const Team: React.FC<SectionProps> = ({ id }) => {
       <div className="container mx-auto px-6">
         
         {/* Section Header */}
-        <h2 className="text-3xl md:text-4xl font-bold text-abn-dark mb-4 text-center">Equipo y Metodología</h2>
         <div className="text-center mb-16">
-          <h3 className="text-2xl font-bold text-abn-accent mb-2">Equipo Dedicado</h3>
-          <p className="text-slate-600">Un mismo equipo con múltiples soluciones, integrado con UES21.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-abn-dark mb-4">Equipo y Metodología</h2>
+          <h3 className="text-2xl font-bold text-abn-accent">Equipo Dedicado</h3>
+          <p className="text-slate-600 mt-2">Un mismo equipo con múltiples soluciones, integrado con UES21.</p>
         </div>
 
         {/* TEAM DIAGRAM STRUCTURE */}
@@ -105,7 +104,6 @@ export const Team: React.FC<SectionProps> = ({ id }) => {
                           </div>
                           <h4 className="font-bold text-xs text-abn-dark">Tracking Specialist</h4>
                         </div>
-                        {/* New Optional Creative Specialist */}
                         <div className="flex items-center gap-3 bg-white p-2 pr-4 rounded-full border border-slate-100 shadow-sm">
                           <div className="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center">
                             <Palette size={14} className="text-pink-600" />
