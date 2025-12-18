@@ -1,12 +1,11 @@
 import React from 'react';
 import { UserPlus, GraduationCap, Search, Calendar, Settings, BarChart3, ShieldCheck } from 'lucide-react';
 import { SectionProps } from '../../types';
-
 export const Roadmap: React.FC<SectionProps> = ({ id }) => {
   const phases = [
     {
       months: "Enero - Marzo",
-      title: "Fase 1: Diagnóstico e Inicio",
+      title: "Fase 1: Inicio de Gestión",
       items: ["Diagnóstico profundo de cuentas", "Setup de herramientas ABN", "Ejecución peak season inmediata", "Auditoría de tracking"],
       color: "border-slate-400",
       bg: "bg-slate-50",
@@ -49,7 +48,6 @@ export const Roadmap: React.FC<SectionProps> = ({ id }) => {
       icon: ShieldCheck
     }
   ];
-
   return (
     <section id={id} className="py-24 bg-white border-t border-slate-200">
       <div className="container mx-auto px-6">
