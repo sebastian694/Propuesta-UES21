@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { UserPlus, GraduationCap, FileText, CheckCircle2, ShieldAlert, Zap, Clock, Monitor, Users, FileCheck } from 'lucide-react';
 import { SectionProps } from '../../types';

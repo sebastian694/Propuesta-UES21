@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { CheckCircle2, Search, BarChart3, Presentation, Server, Rocket, Plus, Lightbulb, Monitor, Zap, RefreshCw, Settings, Database, Bell, Target, GraduationCap, X, Youtube, Facebook, Instagram, Linkedin, Twitter, Play, FileSpreadsheet, Slack, Mic, Layout, Globe, Activity, PieChart, FileText, ArrowRight, ExternalLink } from 'lucide-react';
 import { SectionProps } from '../../types';

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { User, Users, MessageCircle, ArrowRightLeft, Briefcase, UserCheck, CheckCircle2, RotateCw, BarChart3, Database, ArrowDown, Palette, Zap } from 'lucide-react';
 import { SectionProps } from '../../types';

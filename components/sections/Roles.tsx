@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { User, Database, BarChart3, Fingerprint, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { SectionProps } from '../../types';

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { SectionProps } from '../../types';
 import { Check, Calculator, Palette, FileText } from 'lucide-react';
@@ -18,19 +19,17 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
     if (inv <= 190000000) {
       return 13300000;
     } else if (inv <= 224000000) {
-      // 190M * 0.07 = 13.3M
+      // 190M-224M: 7% con piso de 13.3M
       return Math.max(13300000, inv * 0.07);
     } else if (inv <= 324000000) {
-      // 224M * 0.06 = 13.44M -> Min is 15.7M (prev tier max)
-      // 324M * 0.06 = 19.44M -> Table says 19.4M
-      return Math.max(15700000, inv * 0.06);
+      // 224M-324M: 6% con piso de 15.2M
+      return Math.max(15200000, inv * 0.06);
     } else if (inv <= 424000000) {
-      // 324M * 0.05 = 16.2M -> Min is 19.4M (prev tier max)
-      // 424M * 0.05 = 21.2M
-      return Math.max(19400000, inv * 0.05);
+      // 324M-424M: 5% con piso de 18.2M
+      return Math.max(18200000, inv * 0.05);
     } else {
-      // > 424M
-      return Math.max(21200000, inv * 0.04);
+      // > 424M: 4% con piso de 19.5M
+      return Math.max(19500000, inv * 0.04);
     }
   };
 
@@ -62,9 +61,9 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
   const tiers = [
     { from: '0', to: '190M', fixed: '13.3M', var: '0%', min: '13.3M', max: '13.3M', id: 1 },
     { from: '190M', to: '224M', fixed: '-', var: '7%', min: '13.3M', max: '15.7M', id: 2 },
-    { from: '224M', to: '324M', fixed: '-', var: '6%', min: '15.7M', max: '19.4M', id: 3 },
-    { from: '324M', to: '424M', fixed: '-', var: '5%', min: '19.4M', max: '21.2M', id: 4 },
-    { from: '424M', to: '-', fixed: '-', var: '4%', min: '21.2M', max: '0.0', id: 5 },
+    { from: '224M', to: '324M', fixed: '-', var: '6%', min: '15.2M', max: '19.4M', id: 3 },
+    { from: '324M', to: '424M', fixed: '-', var: '5%', min: '18.2M', max: '21.2M', id: 4 },
+    { from: '424M', to: '', fixed: '-', var: '4%', min: '19.5M', max: '0.0', id: 5 },
   ];
 
   return (
@@ -77,7 +76,7 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
           <div className="mb-10 text-center max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-abn-dark mb-4">Modelo de Fee Variable</h3>
             <p className="text-slate-600 text-lg">
-              El esquema de honorarios se define en función de la inversión mensual gestionada en ARS, combinando un componente fijo para el primer tramo y un esquema variable para escalas superiores.
+              El esquema de honorarios se define en función de la inversión mensual gestionada en ARS, combinando un componente fijo inicial y escalas variables según el volumen de inversión.
             </p>
           </div>
 
@@ -85,23 +84,23 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
             <table className="w-full text-center border-collapse bg-white min-w-[700px]">
               <thead>
                 <tr className="bg-[#00344d] text-white">
-                  <th colSpan={2} className="py-4 px-4 border-r border-slate-700">Inversión Mensual (ARS)</th>
-                  <th rowSpan={2} className="py-4 px-4 border-r border-slate-700 align-middle">Fixed</th>
-                  <th rowSpan={2} className="py-4 px-4 border-r border-slate-700 align-middle">Variable</th>
-                  <th colSpan={2} className="py-4 px-4">Total ARS</th>
+                  <th colSpan={2} className="py-4 px-4 border-r border-slate-700 uppercase text-xs tracking-wider">Inversión Mensual (ARS)</th>
+                  <th rowSpan={2} className="py-4 px-4 border-r border-slate-700 align-middle font-bold">Fixed</th>
+                  <th rowSpan={2} className="py-4 px-4 border-r border-slate-700 align-middle font-bold">Variable</th>
+                  <th colSpan={2} className="py-4 px-4 uppercase text-xs tracking-wider">Total ARS</th>
                 </tr>
                 <tr className="bg-[#004a6d] text-white text-sm">
-                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[15%]">Desde</th>
-                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[15%]">Hasta</th>
-                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[20%]">Mínimo</th>
-                  <th className="py-3 px-4 border-t border-slate-700 w-[20%]">Máximo</th>
+                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[15%] italic font-normal">Desde</th>
+                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[15%] italic font-normal">Hasta</th>
+                  <th className="py-3 px-4 border-r border-slate-700 border-t border-slate-700 w-[20%] font-bold">Mínimo</th>
+                  <th className="py-3 px-4 border-t border-slate-700 w-[20%] font-bold">Máximo</th>
                 </tr>
               </thead>
               <tbody className="text-slate-700 font-medium text-sm md:text-base">
                 {tiers.map((tier) => (
                   <tr key={tier.id} className={`border-b border-slate-200 transition-colors duration-300 ${activeTier === tier.id ? 'bg-teal-50 ring-2 ring-inset ring-abn-accent/30' : 'hover:bg-slate-50'}`}>
                     <td className="py-4 px-4 border-r border-slate-100">{tier.from}</td>
-                    <td className="py-4 px-4 border-r border-slate-100">{tier.to}</td>
+                    <td className="py-4 px-4 border-r border-slate-100">{tier.to || '-'}</td>
                     <td className={`py-4 px-4 border-r border-slate-100 ${tier.fixed === '-' ? 'text-slate-400 font-normal' : 'font-bold'}`}>{tier.fixed}</td>
                     <td className="py-4 px-4 border-r border-slate-100">{tier.var}</td>
                     <td className="py-4 px-4 border-r border-slate-100 font-bold text-abn-dark">{tier.min}</td>
@@ -114,7 +113,6 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
 
           <div className="bg-slate-900 rounded-3xl p-8 md:p-12 mb-8 shadow-2xl relative overflow-hidden">
              <div className="absolute top-0 right-0 w-64 h-64 bg-abn-accent/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-             <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-600/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
              
              <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -138,7 +136,7 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
                       />
                       <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-500 text-sm font-bold bg-slate-800 py-1 px-2 rounded-md">M ARS / Mes</span>
                    </div>
-                   <p className="text-[10px] text-slate-500 mt-2 ml-2 italic">Ej: Escribí "15" para 15.000.000 ARS</p>
+                   <p className="text-[10px] text-slate-500 mt-2 ml-2 italic">Ej: Escribí "190" para un presupuesto de $190.000.000 ARS</p>
                 </div>
 
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-sm relative overflow-hidden">
@@ -159,7 +157,6 @@ export const Commercial: React.FC<SectionProps> = ({ id }) => {
              </div>
           </div>
 
-          {/* Updated Fixed Fee Section */}
           <div className="text-center mb-16 py-8 px-6 bg-slate-50 rounded-2xl border border-slate-200">
             <h3 className="text-2xl md:text-3xl font-bold text-abn-dark">Modelo Fee Fijo: ARS 16M</h3>
             <p className="text-slate-500 text-sm mt-2 italic">Valor de referencia mensual para gestión integral de performance y data.</p>

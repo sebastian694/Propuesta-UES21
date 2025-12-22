@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { UserPlus, GraduationCap, Search, Calendar, Settings, BarChart3, ShieldCheck } from 'lucide-react';
 import { SectionProps } from '../../types';
+
 export const Roadmap: React.FC<SectionProps> = ({ id }) => {
   const phases = [
     {
@@ -48,6 +50,7 @@ export const Roadmap: React.FC<SectionProps> = ({ id }) => {
       icon: ShieldCheck
     }
   ];
+
   return (
     <section id={id} className="py-24 bg-white border-t border-slate-200">
       <div className="container mx-auto px-6">
